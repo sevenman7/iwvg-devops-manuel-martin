@@ -15,4 +15,4 @@
    
  ### Estado del código
  [![Build Status](https://travis-ci.org/sevenman7/iwvg-devops-manuel-martin.svg?branch=develop)](https://travis-ci.org/sevenman7/iwvg-devops-manuel-martin)
- 
+ [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aiwvg-devops-manuel-martin&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aiwvg-devops-manuel-martin)
