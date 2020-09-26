@@ -18,3 +18,9 @@
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aiwvg-devops-manuel-martin&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aiwvg-devops-manuel-martin)
  [![BCH compliance](https://bettercodehub.com/edge/badge/sevenman7/iwvg-devops-manuel-martin?branch=develop)](https://bettercodehub.com/)
  [![Heroku broken](https://iwvg-devops-manuel-martin.herokuapp.com/system/version-badge)](https://iwvg-devops-manuel-martin.herokuapp.com/swagger-ui.html)
+ 
+Ultimo commit antes del ultimo Sprint 4ca1a1b
+    Double findFirstDecimalFractionByUserName(String name);
+    Stream<Double> findDecimalFractionByUserName(String name);
+    Stream<String> findUserNameByAnyImproperFraction();
+    Stream<String> findUserIdByAnyProperFraction();
