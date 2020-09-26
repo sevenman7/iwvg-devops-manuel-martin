@@ -2,6 +2,7 @@ package es.upm.miw.iwvg_devops.code;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class Searches {
@@ -45,7 +46,12 @@ public class Searches {
     }
 
     public Fraction findFractionMultiplicationByUserFamilyName(String familyName) {
-        return null;
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFamilyName().equals(familyName))
+                .map(user -> user.getFractions())
+                .flatMap(fractions -> fractions.stream())
+                .reduce(((fraction, fraction2) -> fraction2.multiply(fraction)))
+                .get();
     }
 
     public Fraction findFirstFractionDivisionByUserId(String id) {
@@ -53,7 +59,12 @@ public class Searches {
     }
 
     public Double findFirstDecimalFractionByUserName(String name) {
-        return null;
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getName().equals(name))
+                .map(user -> user.getFractions())
+                .flatMap(fractions -> fractions.stream()).limit(1)
+                .mapToDouble(fraction -> fraction.getNumerator()/fraction.getDenominator())
+                .sum();
     }
 
     public Stream<String> findUserIdByAllProperFraction() {
@@ -77,7 +88,10 @@ public class Searches {
     }
 
     public Stream<String> findUserNameByAnyImproperFraction() {
-        return Stream.empty();
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .anyMatch(fraction -> fraction.isImproper()))
+                .map(User::getName);
     }
 
     public Stream<String> findUserFamilyNameByAllNegativeSignFractionDistinct() {
@@ -85,7 +99,12 @@ public class Searches {
     }
 
     public Stream<Double> findDecimalFractionByUserName(String name) {
-        return Stream.empty();
+
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getName().equals(name))
+                .map(user -> user.getFractions())
+                .flatMap(fractions -> fractions.stream())
+                .map(fraction -> fraction.decimal());
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
