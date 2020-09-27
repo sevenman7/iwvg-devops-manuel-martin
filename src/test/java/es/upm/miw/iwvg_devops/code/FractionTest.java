@@ -73,6 +73,12 @@ public class FractionTest {
     }
 
     @Test
+    void testDivideNumeratorWithDenominator(){
+        Fraction fraction = new Fraction(2,4);
+        assertEquals(0.5, fraction.divideNumeratorWithDenominator());
+    }
+
+    @Test
     void TestToString(){
         assertEquals("Fraction{" +
                 "numerator=" + 2 +
