@@ -85,6 +85,10 @@ public class Fraction {
         return new Fraction(this.numerator * fraction.getDenominator(), this.denominator * fraction.getNumerator());
     }
 
+    public double divideNumeratorWithDenominator(){
+        return (double)this.numerator/(double)this.denominator;
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +

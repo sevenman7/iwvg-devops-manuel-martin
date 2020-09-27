@@ -63,7 +63,7 @@ public class Searches {
                 .filter(user -> user.getName().equals(name))
                 .map(user -> user.getFractions())
                 .flatMap(fractions -> fractions.stream()).limit(1)
-                .mapToDouble(fraction -> fraction.getNumerator()/fraction.getDenominator())
+                .mapToDouble(fraction -> fraction.divideNumeratorWithDenominator())
                 .sum();
     }
 
